@@ -316,9 +316,15 @@ function reactionClick(){
 
 /* النهاية */
 function finishGame(){
- document.getElementById("game").classList.add("hidden");
- document.getElementById("final").classList.remove("hidden");
- confetti();
+  // نخفي كل مراحل اللعبة ونُظهر الرسالة الأخيرة داخل نفس الصندوق
+  document.getElementById("start").classList.add("hidden");
+  for(let i=1;i<=7;i++){
+    const el=document.getElementById("stage"+i);
+    if(el) el.classList.add("hidden");
+  }
+  document.querySelector(".progressBox").classList.add("hidden");
+  document.getElementById("final").classList.remove("hidden");
+  confetti();
 }
 function checkSecret(){
  const input=document.getElementById("secretInput");
